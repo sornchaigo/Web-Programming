@@ -6,15 +6,16 @@ td[colspan] {
     background-color: aquamarine;
 }
 
-table {
-    width: 100%;
-}
-
 table,
 th,
 td {
     border: 1px black solid;
     border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    border: 2px black solid;
 }
 
 th,
@@ -109,4 +110,8 @@ div:first-child {
 
 h1 {
     font-size: 2em;
+}
+
+.side {
+    float: left;
 }
