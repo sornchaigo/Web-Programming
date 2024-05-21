@@ -1,16 +1,112 @@
+th[rowspan],
+td[rowspan="2"] {
+    background-color: antiquewhite;
+}
+td[colspan] {
+    background-color: aquamarine;
+}
+
 table {
     width: 100%;
+}
+
+table,
+th,
+td {
+    border: 1px black solid;
     border-collapse: collapse;
-    margin-bottom: 20px;
-    border: rgb(8, 165, 244) 6px dashed;
 }
 
 th,
 td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    padding: 5px 10px;
 }
 
-th {
-    background-color: #f2f2f2;
+thead {
+    background-color: darkgray;
+    color: rgb(239, 12, 12);
+}
+
+.room {
+    text-align: center;
+}
+
+.lunch {
+    transform: rotate(-90deg);
+    text-align: center;
+}
+
+#digital {
+    background-color: lime;
+}
+
+td:hover {
+    background-color: aquamarine;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: center;
+}
+
+p,
+li {
+    font-size: 16px;
+    line-height: 1.5em;
+    letter-spacing: 1px;
+}
+
+.box {
+    background-color: aquamarine;
+    padding: 15px;
+    margin: 30px;
+    border: 10px solid black;
+}
+
+body {
+    width: calc(100% - 70px);
+    padding: 30px;
+    margin: 0 auto;
+    border: 5px solid black;
+    overflow: auto;
+}
+
+body {
+    background-color: pink;
+}
+
+@media (max-width: 720px) {
+    body {
+        background-color: chocolate;
+    }
+}
+
+img {
+    height: 200px;
+}
+
+li.special {
+    color: orange;
+    font-weight: bold;
+}
+
+
+.one .three {
+    color: green;
+}
+
+.one>.three {
+    color: blueviolet;
+}
+
+.one {
+    color: blue;
+}
+
+div:first-child {
+    color: chocolate;
+}
+
+h1 {
+    font-size: 2em;
 }
