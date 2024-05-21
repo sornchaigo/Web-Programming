@@ -6,55 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-        .container {
-            display: grid;
-            grid-template-areas:
-                "header header"
-                "sidebar content"
-                "sidebar footer";
-            grid-template-columns: 1fr 3fr;
-            grid-template-rows: 1fr 3fr 1fr;
-            height: calc(100vh - 20px);
-            gap: 5px;
-        }
-        .header {
-            grid-area: header;
-        }
-        .footer  {
-            grid-area: footer;
-
-        }
-        .side-menu {
-            grid-area: sidebar;
-        }
-        .content {
-            grid-area: content;
-        }
-
-        .header,
-        .side-menu,
-        .content,
-        .footer {
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="layout.css">
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-grid">
 
         <div class="header">
-            header
+            <img src="/img/sornchai.jpg" alt="Sornchai Udomthanapong">
+            <h1 class="special">Sornchai Udomthanapong</h1>
         </div>
         <div class="side-menu">
-            side-menu
+            <a href="#position">ตำแหน่งงาน</a>
+            <a href="#scheduler">ตารางสอน</a>
+            <a href="#footer">Footer</a>
         </div>
         <div class="content">
-            content
+
+            <h3 id="position">ตำแหน่งงาน</h3>
+            <p> Lecturer in Applied Artificial Inteligence and Smart Technology <br>
+                Faculty of <em>Science and Arts</em> <br>
+                Burapha University
+            </p>
+
+            <p>
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+                กำหนดตำแหน่งของ element โดยจะอยู่ในตำแหน่งตามโฟลว์ปกติ ซึ่งค่า top, right, bottom, left , z-indexจะส่งผลกระทบ แต่ไม่ก่อให้เกิดการเปลี่ยนแปลงตำแหน่งกับ element อื่น
+
+            </p>
+            <div id="scheduler">
+                <table width="100%">
+                    <caption>ตารางเรียน</caption>
+                    <thead>
+                        <tr>
+                            <th>Day/Time</th>
+                            <th>08:00-09:50</th>
+                            <th>10:00-11:50</th>
+                            <th>12:00-12:50</th>
+                            <th>13:00-14:50</th>
+                            <th>15:00-16:50</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th rowspan="2">Mon</th>
+                            <td colspan="2" id="digital">Digital Transformation</td>
+                            <td rowspan="8" class="lunch">พักกลางวัน</td>
+                            <td colspan="2">Digital Transformation</td>
+                        </tr>
+                        <tr>
+                            <td class="room">P-312</td>
+                            <td class="room">P-312</td>
+                            <td class="room">P-312</td>
+                            <td class="room">P-312</td>
+                        </tr>
+                        <tr>
+                            <th>Tue</th>
+                            <td colspan="2"></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">Wed</th>
+                            <td colspan="2">Introduction to Big Data</td>
+                            <td rowspan="2" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td class="room">P-321</td>
+                            <td class="room">P-312</td>
+                        </tr>
+                        <tr>
+                            <th>Thu</th>
+                            <td colspan="2"></td>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <th rowspan="2">Fri</th>
+                            <td colspan="2">Web Programming</td>
+                            <td colspan="2">Object-Oriented Programming</td>
+                        </tr>
+                        <tr>
+                            <td class="room">P-405</td>
+                            <td class="room">P-312</td>
+                            <td class="room">P-321</td>
+                            <td class="room">P-311</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="footer">
-            footer
+            <div class="data-footer">คณะวิทยาศาสตร์และศิลปศาสตร์ มหาวิทยาลัยบูรพา วิทยาเขตจันทบุรี</div>
+            <div class="data-footer">ที่อยู่ : เลขที่ ๕๗ หมู่ ๑ ถนนชลประทาน <br>ตำบลโขมง อำเภอท่าใหม่ จังหวัดจันทบุรี
+                <br>รหัสไปรษณีย์ ๒๒๑๗๐
+            </div>
+            <div class="data-footer">โทรศัพท์ : ๐-๓๙๓๑-๐๐๐๐</div>
+            <div class="data-footer">โทรสาร : ๐-๓๙๓๑-๐๑๒๘</div>
+            <div class="data-footer">อีเมล์ เว็บมาสเตอร์ : arees@go.buu.ac.th</div>
         </div>
     </div>
 </body>

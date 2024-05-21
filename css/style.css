@@ -72,16 +72,6 @@ body {
     overflow: auto;
 }
 
-body {
-    background-color: pink;
-}
-
-@media (max-width: 720px) {
-    body {
-        background-color: chocolate;
-    }
-}
-
 img {
     height: 200px;
 }
@@ -102,10 +92,6 @@ li.special {
 
 .one {
     color: blue;
-}
-
-div:first-child {
-    color: chocolate;
 }
 
 h1 {
