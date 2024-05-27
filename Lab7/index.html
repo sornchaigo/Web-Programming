@@ -9,6 +9,13 @@
         table {
             width: 100%;
         }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            align-content: center;
+            flex-direction: column;
+        }
     </style>
 </head>
 
@@ -23,18 +30,48 @@
             </tr>
         </thead>
         <tbody>
-            <tr></tr>
+            <!-- <tr id="Mon">
+                <th>Mon</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="Tue">
+                <th>Tue</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="Wed">
+                <th>Wed</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="Thu">
+                <th>Thu</th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr id="Fri">
+                <th>Fri</th>
+                <td></td>
+                <td></td>
+            </tr> -->
         </tbody>
     </table>
 
     &nbsp;
     <hr>&nbsp;<br>
 
-    <label for="day">Day </label><input type="list" list="day-of-week" name="day" id="day" placeholder="day"><br>
-    <label for="morning">Morning </label><input type="text" name="morning" id="morning" placeholder="Morning"><br>
-    <label for="afternoon">Afternoon </label><input type="text" name="afternoon" id="afternoon"
-        placeholder="Afternoon"><br>
-    <input type="button" id="addButton" value="add">
+    <!-- <div class="input-group">
+        <label for="day">Day </label><input type="text" list="day-of-week" name="day" id="day" placeholder="day">
+        <label for="time">Time </label><input type="text" list="time-of-day" name="time" id="time" placeholder="Time">
+        <label for="subject">Subject </label><input type="text" name="subject" id="subject" placeholder="Subject">
+        <input type="button" id="editButton" value="Edit">
+    </div><br> -->
+    <div class="input-group">
+        <input type="text" name="subject" id="subject2">
+        <input type="button" id="addButton" value="Add">
+    </div>
+
 
     <datalist id="day-of-week">
         <option value="Mon"></option>
@@ -42,27 +79,56 @@
         <option value="Wed"></option>
         <option value="Thu"></option>
         <option value="Fri"></option>
-      </datalist>
+    </datalist>
+
+    <datalist id="time-of-day">
+        <option value="Morning"></option>
+        <option value="Afternoon"></option>
+    </datalist>
 </body>
 <script>
+    let time_of_day = { 'Morning': 0, 'Afternoon': 1 };
+    let day_of_week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
+
+    let count = 0;
     function addClicked(event) {
+        let subject = document.querySelector('#subject2');
+        let tbody = document.querySelector('tbody');
+
+        let day = Math.floor(count / 2);
+        let col = count % 2;
+
+        if (day >= day_of_week.length) {
+            return;
+        }
+        if (col == 0) {
+            tbody.innerHTML += `<tr><th>${day_of_week[day]}</th></tr>`;
+        }
+
+        let tr = tbody.lastChild;
+        tr.innerHTML += `<td>${subject.value}</td>`;
+    }
+
+    let addButton = document.querySelector("#addButton");
+    addButton.onclick = addClicked;
+
+    function editClicked(event) {
         // ค้นหา ul ที่จะเพิ่มข้อมูลเข้าไป    
         let tbody = document.querySelector('tbody');
         // ดึงข้อมูล input 
         let day = document.querySelector('#day');
-        let morning = document.querySelector('#morning');
-        let afternoon = document.querySelector('#afternoon');
+        let time = document.querySelector('#time');
+        let subject = document.querySelector('#subject');
 
-        tbody.innerHTML += `<tr>
-            <th>${day.value}</th>
-            <td>${morning.value}</td>
-            <td>${afternoon.value}</td>
-            </tr>`;
+        let tr = document.querySelector(`#${day.value}`);
+        let td = tr.querySelectorAll('td')[time_of_day[time.value]];
+        td.textContent = subject.value;
+
     }
 
-    let addButton = document.querySelector("#addButton");
-    // addButton.addEventListener( 'click', addClicked);
-    addButton.onclick = addClicked;
+    // let editButton = document.querySelector("#editButton");
+    // // addButton.addEventListener( 'click', addClicked);
+    // editButton.onclick = editClicked;
 </script>
 
 </html>
