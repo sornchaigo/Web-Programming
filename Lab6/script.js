@@ -21,9 +21,9 @@ for (let day in week) {
     tr.innerHTML += `<th>${day}</th>`;
     for (let td of week[day])
         tr.innerHTML += `<td ${td.attribute}>${td.text}</td>`;
-
     tbody.append(tr);
 }
+
 let tr = document.querySelector('#table > tbody > tr');
 let nth = document.querySelector('#table > tbody > tr :nth-child(4)');
 let td = document.createElement("td");
@@ -32,4 +32,3 @@ td.className = "lunch";
 td.textContent = "Lunch";
 td.innerHTML = `<div>Lunch</div>`;
 tr.insertBefore(td, nth);
-
