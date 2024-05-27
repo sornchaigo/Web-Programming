@@ -1,0 +1,213 @@
+.container {
+    border: 2px red solid;
+    width: 400px;
+    height: 400px;
+    margin: 100px;
+    /* position: relative; */
+    overflow-y: scroll;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.item-1 {
+    background-color: powderblue;
+    /* width: 100px; */
+    /* height: 100px; */
+    position: static;
+    flex: 200px;
+    align-self: flex-end;
+
+}
+
+.item-2 {
+    background-color: orange;
+    /* width: 100px; */
+    /* height: 80px; */
+    position: static;
+    flex: 1 200px;
+}
+
+.item-3 {
+    background-color: blueviolet;
+    /* width: 100px; */
+    /* height: 200px; */
+    position: static;
+    flex: 200px;
+}
+
+.item {
+    z-index: 999;
+    border: 1px solid black;
+    background-color: pink;
+    /* margin: 10px 0; */
+    position: static;
+}
+
+.clear {
+    clear: both;
+}
+
+.sticky {
+    position: sticky;
+    top: 20px;
+    bottom: 20px;
+    background-color: #e74c3c;
+}
+
+.grid-container {
+    display: grid;
+    /* grid-template-columns: 100px auto auto; */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: minmax(auto, 100px);
+    /* column-gap: 20px;
+    row-gap: 10px; */
+    gap: 10px 20px;
+}
+
+.grid-item {
+    border: 1px solid black;
+    text-align: center;
+    padding: 30px
+}
+
+.grid-item-1 {
+    border: 1px solid black;
+    text-align: center;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+/* static relative absolute fixed sticky  */
+
+.container-grid {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "sidebar footer";
+    grid-template-columns: 180px 3fr;
+    grid-template-rows: 200px 3fr 1fr;
+    height: calc(100vh - 20px);
+    gap: 5px;
+}
+
+.header {
+    grid-area: header;
+    display: flex;
+    padding: 0;
+}
+
+.header {
+    
+    /* background-color: darkgrey; */
+    background-image: url("/img/beautiful-landscape.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: bottom;
+    margin: 0;
+    padding: 2em 1em;
+    width: 100%;
+}
+
+.header h1 {
+    color: white;
+    text-shadow: 1px 1px 5px black;
+}
+
+.footer {
+    grid-area: footer;
+    font-size: smaller;
+}
+
+.side-menu {
+    grid-area: sidebar;
+    padding: 15px;
+}
+
+.side-menu a {
+    display: block;
+    margin: 5px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: darkblue;
+    line-height: 2;
+    color: white;
+    text-decoration: none;
+}
+
+.side-menu a:hover {
+    background-color: crimson;
+}
+
+.content {
+    grid-area: content;
+    padding: 15px;
+    overflow-y: auto;
+}
+
+.header,
+.side-menu,
+.content,
+.footer {
+    border: 1px solid black;
+    padding: 15px;
+}
+
+th[rowspan],
+td[rowspan="2"] {
+    background-color: antiquewhite;
+}
+
+td[colspan] {
+    background-color: aquamarine;
+}
+
+table,
+th,
+td {
+    border: 1px black solid;
+    border-collapse: collapse;
+}
+
+table {
+    width: 100%;
+    border: 2px black solid;
+}
+
+th,
+td {
+    padding: 5px 10px;
+}
+
+thead {
+    background-color: darkgray;
+    color: rgb(239, 12, 12);
+}
+
+.room {
+    text-align: center;
+}
+
+.lunch {
+    background-color: chocolate;
+    text-align: center;
+}
+
+.lunch > div {
+    transform: rotate(-90deg);
+    
+}
+.roundimg {
+    border-radius: 50%;
+}
+
+td:hover {
+    background-color: chocolate;
+}
+
+p {
+    text-indent: 20px;
+}
