@@ -1,0 +1,14 @@
+{#
+{% set navigation = [
+('Profile', url_for('root'),),
+('Table', url_for('table'),),
+("Welcome", url_for('welcome', username='Sornchai'),),
+] %}
+{% for (text, url) in navigation %}
+<a href="{{url}}"> <button class="btn">{{text}}</button> </a>
+{% endfor %}
+#}
+
+<a href="{{url_for('root')}}"> <button class="btn">Profile</button> </a>
+<a href="{{url_for('table')}}"> <button class="btn">Table</button> </a>
+<a href="{{url_for('welcome', username='Sornchai')}}"> <button class="btn">Welcome</button> </a>

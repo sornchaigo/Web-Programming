@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ title or "FastAPI Template"}}{% endblock title %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+    <div class="warper">
+        <div class="head">
+            <div class="box">
+                <img src="/static/img/sornchai.jpg" alt="Sornchai Udomthanapong">
+                <h1 class="special">Sornchai Udomthanapong</h1>
+            </div>
+        </div>
+        <div class="side">
+            {% include 'navigation.html' %}
+        </div>
+        <div class="content">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+</body>
+
+</html>
