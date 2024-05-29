@@ -70,7 +70,8 @@ async def searchSubject(listSubject: list, keyword: str):
 
 @app.get("/subject", response_class=HTMLResponse)
 async def subject(request: Request, keyword: str | None = None):
-    matchSubject = listSubject
+    newlist = sorted(listSubject, key=lambda d: d["id"])
+    matchSubject = newlist
     if keyword:
         matchSubject = await searchSubject(listSubject, keyword)
 
@@ -89,12 +90,14 @@ class Subject(BaseModel):
 @app.post("/subject")
 async def create_subject(
     request: Request,
-    subject_id: Annotated[str, Form()],
+    subject_id: Annotated[int, Form()],
     subject_name: Annotated[str, Form()],
 ):
+    global listSubject
     sub = {"id": subject_id, "name": subject_name}
     if not sub in listSubject:
-        listSubject.append(sub)
+        listSubject.append(sub) 
+        listSubject = sorted(listSubject, key=lambda d: d["id"])
 
     return templates.TemplateResponse(
         request=request,
