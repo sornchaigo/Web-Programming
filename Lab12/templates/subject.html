@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+    <!--     
+    {% for subject in subjectList %}
+    <li>{{subject.id}} : {{subject.name}}</li>
+    {% endfor %} 
+-->
+
+
+</ul>
+
+<!-- METHOD GET -->
+<form action="{{ url_for('subject') }}" method="GET">
+    <input type="text" name="keyword" id="keyword" value="{{keyword}}">
+    <input type="submit" value="ค้นหา">
+</form>
+
+<hr>
+
+<!-- METHOD POST -->
+<form action="{{ url_for('create_subject') }}" method="POST" id="form_create_subject">
+    <input type="text" name="subject_id" id="subject_id">
+    <input type="text" name="subject_name" id="subject_name">
+    <input type="submit" value="เพิ่ม">
+</form>
+{% endblock content %}
+
+{% block script %}
+<script>
+    async function renderSubject(event) {
+        let keywordEle = document.querySelector("#keyword");
+
+        let response = await fetch(`{{ url_for('getSubject') }}?keyword=${keywordEle.value}`);
+        let subjectList = await response.json();
+
+        let ulEle = document.querySelector("ul");
+        ulEle.innerHTML = "";
+        for (let subject of subjectList) {
+            console.log(subject);
+            ulEle.innerHTML += `<li>${subject.id} :${subject.name}</li>`;
+        }
+    }
+
+    window.onload = () => {
+        renderSubject()
+        let formCreateSubject = document.querySelector("#form_create_subject");
+        formCreateSubject.onsubmit = create_subject;
+    };
+
+
+    async function create_subject(event) {
+        event.preventDefault();
+
+        let subIdEle = document.querySelector("#subject_id");
+        let subNameEle = document.querySelector("#subject_name");
+
+        let response = await fetch("{{url_for('createSubject')}}", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: JSON.stringify({
+                'id': subIdEle.value,
+                'name': subNameEle.value
+            }),
+        });
+        let data = await response.json();
+
+        renderSubject()
+    }
+
+
+    function searchSubject(event) {
+
+    }
+</script>
+{% endblock script %}
