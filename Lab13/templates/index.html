@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        img {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="img">
+        {% for img in uploadFiles %}
+        <img src="/upload/{{img}}" alt="">
+        {% endfor %}
+    </div> -->
+
+    <div>
+        <table width="100%" border="1">
+            <thead>
+
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <form action="{{url_for('create_upload_file')}}" enctype="multipart/form-data" method="post" id="uploadForm">
+        <input type="text" name="name">
+        <input type="file" name="files" multiple accept=".csv,.jpg,.png">
+        <input type="submit">
+    </form>
+
+</body>
+<script>
+    async function uploadFile(event) {
+        event.preventDefault();
+        let uploadForm = document.querySelector("#uploadForm");
+        let form = new FormData(uploadForm);
+        let response = await fetch("{{ url_for('upload_csv') }}", {
+            method: "POST",
+            body: form
+        })
+        let data = await response.json();
+        let thead = document.querySelector("thead");
+        let innerHTML = "<tr>";
+        thead.innerHTML = "";
+        for (let head in data) {
+            innerHTML += `<td>${head}</td>`;
+        }
+        thead.innerHTML += innerHTML + "</tr>";
+
+        let tbody = document.querySelector("tbody");
+        tbody.innerHTML = "";
+        innerHTML = "";
+        for (let index in data["Index"] ) {
+            innerHTML += "<tr>";
+            for (let head in data) {
+                innerHTML += `<td>${data[head][index]}</td>`;
+            }
+            innerHTML += "</tr>";
+        }
+
+        tbody.innerHTML = innerHTML;
+    }
+
+    window.onload = (event) => {
+        let uploadForm = document.querySelector("#uploadForm");
+        uploadForm.onsubmit = uploadFile;
+
+    }
+</script>
+
+</html>
